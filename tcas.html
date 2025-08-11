@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TCAS - ก้าวสู่มหาวิทยาลัยในฝัน</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #4A90E2;
+            --secondary-color: #50E3C2;
+            --dark-color: #333;
+            --light-color: #f4f7f6;
+            --text-color: #555;
+            --border-radius: 8px;
+            --shadow: 0 5px 15px rgba(0,0,0,0.08);
+        }
+
+        body {
+            font-family: 'Kanit', sans-serif;
+            margin: 0;
+            background-color: #ffffff;
+            color: var(--text-color);
+            line-height: 1.7;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* --- Header --- */
+        .main-header {
+            background: #fff;
+            padding: 1rem 0;
+            border-bottom: 1px solid #e0e0e0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .main-header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .main-header .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        .main-nav ul { display: flex; list-style: none; padding: 0; margin: 0; }
+        .main-nav ul li { margin-left: 25px; }
+        .main-nav ul li a { text-decoration: none; color: var(--dark-color); font-weight: 500; transition: color 0.3s ease; }
+        .main-nav ul li a:hover { color: var(--primary-color); }
+
+        .btn {
+            display: inline-block; padding: 10px 25px; border-radius: var(--border-radius);
+            text-decoration: none; color: #fff; background-color: var(--primary-color);
+            font-weight: 500; transition: background-color 0.3s ease; border: none; cursor: pointer;
+        }
+        .btn:hover { background-color: #357ABD; }
+        
+        /* --- Hero Section --- */
+        .hero {
+            background-color: var(--light-color);
+            padding: 60px 0;
+            text-align: center;
+        }
+        .hero h1 { font-size: 3.2rem; color: var(--dark-color); margin-bottom: 1rem; font-weight: 700; }
+        .hero p { font-size: 1.2rem; max-width: 600px; margin: 0 auto 30px auto; }
+
+        /* --- Countdown Timer --- */
+        .countdown { margin-top: 40px; }
+        .countdown h3 { font-size: 1.5rem; color: var(--dark-color); margin-bottom: 20px;}
+        .countdown-timer { display: flex; justify-content: center; gap: 20px; }
+        .timer-box { background: var(--primary-color); color: #fff; padding: 15px 20px; border-radius: var(--border-radius); }
+        .timer-box span { display: block; font-size: 2.5rem; font-weight: 700; }
+        .timer-box p { margin: 0; font-size: 0.9rem; font-weight: 300; }
+
+        .section-title { text-align: center; font-size: 2.5rem; margin-bottom: 40px; color: var(--dark-color); padding-top: 40px; }
+
+        /* --- Rounds Section --- */
+        .rounds-section { padding: 40px 0; }
+        .rounds-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; }
+        .round-card { background: #fff; border: 1px solid #e0e0e0; border-radius: var(--border-radius); padding: 30px; text-align: center; transition: transform 0.3s ease, box-shadow 0.3s ease; }
+        .round-card:hover { transform: translateY(-5px); box-shadow: var(--shadow); }
+        .round-card .icon { font-size: 3rem; color: var(--primary-color); margin-bottom: 15px; }
+        .round-card h3 { font-size: 1.5rem; margin-bottom: 10px; color: var(--dark-color); }
+        .round-card p { font-size: 1rem; margin-bottom: 0; }
+
+        /* --- News Section --- */
+        .news-section { padding: 40px 0; background: var(--light-color); }
+        .news-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
+        .news-card { background: #fff; border-radius: var(--border-radius); box-shadow: var(--shadow); overflow: hidden; transition: transform 0.3s ease; }
+        .news-card:hover { transform: translateY(-5px); }
+        .news-card img { width: 100%; height: 200px; object-fit: cover; }
+        .news-card-content { padding: 25px; }
+        .news-card-content .tag { background: var(--secondary-color); color: #fff; padding: 5px 10px; font-size: 0.8rem; border-radius: 5px; display: inline-block; margin-bottom: 10px; }
+        .news-card-content h3 { font-size: 1.25rem; margin: 0 0 10px 0; color: var(--dark-color); }
+        .news-card-content .date { font-size: 0.9rem; color: #999; margin-bottom: 15px; }
+        .news-card-content a { color: var(--primary-color); text-decoration: none; font-weight: 500; }
+
+        /* --- FAQ Section --- */
+        .faq-section { padding: 40px 0 60px 0; }
+        .faq-container { max-width: 800px; margin: 0 auto; }
+        .faq-item { border-bottom: 1px solid #e0e0e0; margin-bottom: 10px; }
+        .faq-question { font-size: 1.1rem; font-weight: 500; color: var(--dark-color); padding: 15px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; }
+        .faq-question i { transition: transform 0.3s ease; }
+        .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.3s ease, padding 0.3s ease; }
+        .faq-answer p { padding: 0 15px 15px 15px; margin: 0; }
+        .faq-item.active .faq-question i { transform: rotate(180deg); }
+        .faq-item.active .faq-answer { max-height: 200px; }
+        
+        /* --- Footer --- */
+        .main-footer { background-color: var(--dark-color); color: #fff; padding: 40px 0; text-align: center; }
+        .main-footer p { margin: 0; color: #ccc; }
+
+        /* --- Responsive (Mobile) --- */
+        @media (max-width: 768px) {
+            .main-header .container { flex-direction: column; gap: 15px; }
+            .main-nav ul { flex-direction: column; align-items: center; gap: 10px; margin-top: 10px; }
+            .main-nav ul li { margin-left: 0; }
+            
+            .hero h1 { font-size: 2.5rem; }
+            .countdown-timer { gap: 10px; }
+            .timer-box span { font-size: 1.8rem; }
+            
+            .news-grid { grid-template-columns: 1fr; }
+        }
+
+    </style>
+</head>
+<body>
+
+    <header class="main-header">
+        <div class="container">
+            <a href="#" class="logo">TCAS</a>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="#rounds">รอบการรับสมัคร</a></li>
+                    <li><a href="#news">ข่าวสาร</a></li>
+                    <li><a href="#faq">คำถามที่พบบ่อย</a></li>
+                </ul>
+            </nav>
+            <a href="https://www.mytcas.com/" target="_blank" class="btn">เข้าสู่ระบบ myTCAS</a>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h1>ก้าวสู่มหาวิทยาลัยในฝัน</h1>
+            <p>ระบบการคัดเลือกกลางบุคคลเข้าศึกษาในสถาบันอุดมศึกษา<br>วางแผนอนาคตของคุณและเตรียมตัวให้พร้อม</p>
+            
+            <div class="countdown">
+                <h3>เหลือเวลาอีก... ก่อนเปิดรับสมัครรอบ Admission</h3>
+                <div class="countdown-timer" id="countdown-timer">
+                    <div class="timer-box">
+                        <span id="days">00</span>
+                        <p>วัน</p>
+                    </div>
+                    <div class="timer-box">
+                        <span id="hours">00</span>
+                        <p>ชั่วโมง</p>
+                    </div>
+                    <div class="timer-box">
+                        <span id="minutes">00</span>
+                        <p>นาที</p>
+                    </div>
+                    <div class="timer-box">
+                        <span id="seconds">00</span>
+                        <p>วินาที</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="rounds" class="rounds-section">
+        <div class="container">
+            <h2 class="section-title">รูปแบบการรับสมัคร 4 รอบ</h2>
+            <div class="rounds-grid">
+                <div class="round-card"><div class="icon">📁</div><h3>รอบที่ 1: Portfolio</h3><p>ใช้แฟ้มสะสมผลงาน ไม่มีการสอบข้อเขียน เหมาะสำหรับผู้มีความสามารถพิเศษ</p></div>
+                <div class="round-card"><div class="icon">🎓</div><h3>รอบที่ 2: Quota</h3><p>สำหรับนักเรียนในพื้นที่หรือตามเงื่อนไขโควตาของมหาวิทยาลัย</p></div>
+                <div class="round-card"><div class="icon">📝</div><h3>รอบที่ 3: Admission</h3><p>รับตรงร่วมกัน ใช้คะแนนสอบส่วนกลางเป็นหลักในการพิจารณา</p></div>
+                <div class="round-card"><div class="icon">🚀</div><h3>รอบที่ 4: Direct Admission</h3><p>รับตรงอิสระ มหาวิทยาลัยเปิดรับสมัครโดยตรงตามที่นั่งที่ว่าง</p></div>
+            </div>
+        </div>
+    </section>
+
+    <section id="news" class="news-section">
+        <div class="container">
+            <h2 class="section-title">ข่าวสารและประกาศล่าสุด</h2>
+            <div class="news-grid">
+                <div class="news-card">
+                    <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?q=80&w=2070&auto=format&fit=crop" alt="News Image 1">
+                    <div class="news-card-content">
+                        <span class="tag">ประกาศ</span>
+                        <h3>ทปอ. ประกาศกำหนดการ TCAS68 อย่างเป็นทางการ</h3>
+                        <p class="date">5 กรกฎาคม 2568</p>
+                        <p>รายละเอียดปฏิทินการรับสมัครทุกรอบ พร้อมข้อควรระวังที่ต้องรู้...</p>
+                        <a href="#">อ่านเพิ่มเติม &raquo;</a>
+                    </div>
+                </div>
+                <div class="news-card">
+                    <img src="https://images.unsplash.com/photo-1543269865-cbf427effbad?q=80&w=2070&auto=format&fit=crop" alt="News Image 2">
+                    <div class="news-card-content">
+                        <span class="tag">แนะนำ</span>
+                        <h3>คู่มือเตรียมสอบ TGAT/TPAT ฉบับสมบูรณ์</h3>
+                        <p class="date">3 กรกฎาคม 2568</p>
+                        <p>เจาะลึกเนื้อหาทุกพาร์ต พร้อมเทคนิคการทำคะแนนจากรุ่นพี่...</p>
+                        <a href="#">อ่านเพิ่มเติม &raquo;</a>
+                    </div>
+                </div>
+                <div class="news-card">
+                    <img src="https://images.unsplash.com/photo-1571260899104-646db413c842?q=80&w=2070&auto=format&fit=crop" alt="News Image 3">
+                    <div class="news-card-content">
+                        <span class="tag">รอบ Portfolio</span>
+                        <h3>เคล็ดลับทำ Portfolio อย่างไรให้โดนใจกรรมการ</h3>
+                        <p class="date">1 กรกฎาคม 2568</p>
+                        <p>รวบรวมตัวอย่างพอร์ตโฟลิโอที่ผ่านการคัดเลือก พร้อมคำแนะนำ...</p>
+                        <a href="#">อ่านเพิ่มเติม &raquo;</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="faq" class="faq-section">
+        <div class="container">
+            <h2 class="section-title">คำถามที่พบบ่อย (FAQ)</h2>
+            <div class="faq-container">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>TGAT / TPAT คืออะไร? ต้องสอบทุกคนไหม?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>TGAT (Thai General Aptitude Test) คือการวัดความถนัดทั่วไป และ TPAT (Thai Professional Aptitude Test) คือการวัดความถนัดทางวิชาชีพ... การจะสอบตัวไหนบ้างขึ้นอยู่กับข้อกำหนดของคณะ/สาขาที่ต้องการสมัครครับ</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>รอบ 3 Admission สามารถเลือกได้กี่อันดับ?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>ในการสมัครรอบ 3 Admission ผู้สมัครสามารถเลือกคณะ/สาขาได้สูงสุด 10 อันดับ โดยมีการประมวลผล 2 ครั้ง หากไม่ผ่านในครั้งแรก จะมีโอกาสได้รับการประมวลผลในครั้งที่สองโดยอัตโนมัติ (หากยังประสงค์จะเข้าร่วม)</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>ถ้าติดรอบ Quota แล้ว สามารถสมัครรอบ Admission ได้อีกไหม?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>หากคุณยืนยันสิทธิ์ (Confirm) ในรอบ Quota ไปแล้ว จะไม่สามารถสมัครในรอบถัดไปได้ ยกเว้นจะทำการ "สละสิทธิ์" ภายในช่วงเวลาที่ ทปอ. กำหนดไว้เท่านั้น โปรดติดตามประกาศอย่างใกล้ชิด</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="main-footer">
+        <div class="container">
+            <p>ดำเนินการโดย ที่ประชุมอธิการบดีแห่งประเทศไทย (ทปอ.)</p>
+            <p>&copy; 2025 TCAS Thailand. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+<script>
+    // --- Countdown Timer Logic ---
+    const countdown = () => {
+        // ตั้งค่าวันเป้าหมาย (ปี, เดือน(0-11), วัน, ชั่วโมง, นาที, วินาที)
+        // ตัวอย่าง: 1 กันยายน 2568 เวลา 09:00:00
+        const countDate = new Date('September 1, 2025 09:00:00').getTime();
+        const now = new Date().getTime();
+        const gap = countDate - now;
+
+        const second = 1000;
+        const minute = second * 60;
+        const hour = minute * 60;
+        const day = hour * 24;
+
+        const textDay = Math.floor(gap / day);
+        const textHour = Math.floor((gap % day) / hour);
+        const textMinute = Math.floor((gap % hour) / minute);
+        const textSecond = Math.floor((gap % minute) / second);
+
+        document.getElementById('days').innerText = textDay < 10 ? '0' + textDay : textDay;
+        document.getElementById('hours').innerText = textHour < 10 ? '0' + textHour : textHour;
+        document.getElementById('minutes').innerText = textMinute < 10 ? '0' + textMinute : textMinute;
+        document.getElementById('seconds').innerText = textSecond < 10 ? '0' + textSecond : textSecond;
+        
+        if (gap < 0) {
+            document.getElementById('countdown-timer').innerHTML = '<h3 style="color:white;width:100%;">เปิดรับสมัครแล้ว!</h3>';
+        }
+    };
+    setInterval(countdown, 1000);
+
+    // --- FAQ Accordion Logic ---
+    const faqItems = document.querySelectorAll('.faq-item');
+
+    faqItems.forEach(item => {
+        const question = item.querySelector('.faq-question');
+        question.addEventListener('click', () => {
+            // ปิดอันอื่นที่เปิดอยู่ (ถ้าต้องการให้เปิดได้ทีละอัน)
+            faqItems.forEach(otherItem => {
+                if(otherItem !== item && otherItem.classList.contains('active')) {
+                    otherItem.classList.remove('active');
+                }
+            });
+            // เปิด/ปิดอันที่คลิก
+            item.classList.toggle('active');
+        });
+    });
+
+</script>
+</body>
+</html>
